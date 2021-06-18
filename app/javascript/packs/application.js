@@ -15,5 +15,9 @@ Turbolinks.start()
 ActiveStorage.start()
 
 document.addEventListener("turbolinks:load", () => {
-  console.log("Sortable: ", Sortable)
+  var el = document.getElementById("tasks-list")
+  var sortable = Sortable.create(el, {
+    animation: 150,
+    ghostClass: "blue-background-class"
+  })
 })

@@ -35,23 +35,40 @@
 
     <h4>Tasks</h4>
     <ul id="tasks-list">
-      <li>
       <% @project.tasks.each do |task| %>
         <% if task.persisted? %>
-          <div class="card mb-3">
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <span class="badge bg-<%= task.badge_color %> mb-4"><%= task.status %></span>
-                <div>
-                  <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-light btn-sm" %>
-                  <%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm" %>
+          <li>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div class="task-status">
+                    <i class="fas fa-grip-vertical grip text-secondary mr-1"></i>
+                    <span class="badge bg-<%= task.color_class %>"><%= task.status %></span>
+                  </div>
+                  <div>
+                    <div class="dropdown float-left">
+                      <button class="btn btn-sm mb-1 btn-outline-<%= task.color_class %> dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= task.readable_status %>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <% Task::STATUS_OPTIONS.each do |status| %>
+                          <a class="dropdown-item" href="#"><%= status[0] %></a>
+                        <% end %>
+                      </div>
+                    </div>
+                    <%= link_to edit_project_task_path(task.project, task), class: "btn btn-light btn-sm" do %> 
+                      <i class="far fa-edit"></i>
+                    <% end %>
+                    <%= link_to [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm" do %>
+                      <i class="fas fa-trash"></i>
+                    <% end %>
+                  </div>
                 </div>
+                <h5 class="card-title mb-2"><%= task.name %></h5>
+                <p><%= task.description %></p>
               </div>
-              <h5 class="card-title mb-2"><%= task.name %></h5>
-              <p><%= task.description %></p>
             </div>
-          </div>
-        </li>
+          </li>
         <% end %>
       <% end %>
     </ul>
