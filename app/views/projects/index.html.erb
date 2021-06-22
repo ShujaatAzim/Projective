@@ -4,6 +4,8 @@
       <span>Your Projects</span>
       <span>
       <%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-dark' %>
+      </span>
     </h2>
 
     <% @projects.each do |project| %>
