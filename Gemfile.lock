@@ -211,7 +211,11 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+<<<<<<< HEAD
   x86_64-darwin-19
+=======
+  x86_64-darwin-18
+>>>>>>> parent of a9830ad... Lots of stylying changes, including to the default log in/registration forms. Fixed task toolbar layout using spans. Getting ready to add stimulus reflex again.
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)

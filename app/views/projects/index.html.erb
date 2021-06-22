@@ -1,11 +1,13 @@
 <div class="card">
   <div class="card-body">
     <h2 class="card-title d-flex justify-content-between mb-4">
+<<<<<<< HEAD
       <span>Your Projects</span>
       <span>
+=======
+      <span>Projects</span>
+>>>>>>> parent of a9830ad... Lots of stylying changes, including to the default log in/registration forms. Fixed task toolbar layout using spans. Getting ready to add stimulus reflex again.
       <%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-dark' %>
-      </span>
     </h2>
 
     <% @projects.each do |project| %>
