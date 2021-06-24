@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_001731) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.text "description", default: "Add a description of this task!"
     t.string "status"
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
