@@ -21,3 +21,5 @@ document.addEventListener("turbolinks:load", () => {
     ghostClass: "blue-background-class"
   })
 })
+
+import "controllers"
